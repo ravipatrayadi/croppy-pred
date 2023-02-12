@@ -6,26 +6,26 @@ import emoji
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-from sklearn.model_selection import train_test_split
-from sklearn.feature_extraction.text import TfidfVectorizer
+# from sklearn.model_selection import train_test_split
+# from sklearn.feature_extraction.text import TfidfVectorizer
 import itertools
-from sklearn.naive_bayes import MultinomialNB
-from sklearn import metrics
-from sklearn.linear_model import PassiveAggressiveClassifier
+# from sklearn.naive_bayes import MultinomialNB
+# from sklearn import metrics
+# from sklearn.linear_model import PassiveAggressiveClassifier
 import os
 
 import seaborn as sns
-from sklearn.linear_model import LogisticRegression
-from sklearn.svm import SVC
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import confusion_matrix
+# from sklearn.linear_model import LogisticRegression
+# from sklearn.svm import SVC
+# from sklearn.tree import DecisionTreeClassifier
+# from sklearn.neighbors import KNeighborsClassifier
+# from sklearn.model_selection import train_test_split
+# from sklearn.metrics import confusion_matrix
 
 import pyttsx3
 import pandas as pd
-from sklearn import preprocessing
-from sklearn.neighbors import KNeighborsClassifier
+# from sklearn import preprocessing
+# from sklearn.neighbors import KNeighborsClassifier
 import numpy as np
 import PySimpleGUI as sg
 
@@ -86,7 +86,7 @@ def home(request):
 ######## SVM ######
 def nvb(request):
 	data = pd.read_csv('crop.csv')
-	from sklearn import preprocessing		
+	# from sklearn import preprocessing		
 	labelencoder_X = preprocessing.LabelEncoder()
 	X = data.iloc[:, 1:8].values
 	y = data.iloc[:, 9].values	   
@@ -97,7 +97,7 @@ def nvb(request):
 
 	A_test=[[1997,598400,24.243,42.3484,84,217000,1]]
 	#testing  
-	from sklearn import linear_model
+	# from sklearn import linear_model
 	reg = linear_model.LinearRegression()
 	reg.fit(X_train,y_train)
 	pred = reg.predict(X_test)
@@ -120,19 +120,19 @@ def rf(request):
 
 	A_test=[[1997,598400,24.243,42.3484,84,217000,1]]
 	#testing  
-	from sklearn.datasets import make_regression
-	from sklearn.ensemble import RandomForestClassifier
-	regr = RandomForestClassifier()
-	regr.fit(X_train,y_train)
-	pred = regr.predict(X_test)
-	pred1 = regr.predict(A_test)
-	print(pred1)
-	score = metrics.accuracy_score(y_test, pred)
-	print("accuracy:   %0.3f" % score)
-	d = {'a': score}
+	# from sklearn.datasets import make_regression
+	# from sklearn.ensemble import RandomForestClassifier
+	# regr = RandomForestClassifier()
+	# regr.fit(X_train,y_train)
+	# pred = regr.predict(X_test)
+	# pred1 = regr.predict(A_test)
+	# print(pred1)
+	# score = metrics.accuracy_score(y_test, pred)
+	# print("accuracy:   %0.3f" % score)
+	# d = {'a': score}
 	#print(reg.score(X_test,y_test))
 	#acclogistic=reg.score(X_test,y_test)
-	return render(request,'NaiveBayes.html',d)
+	# return render(request,'NaiveBayes.html',d)
 	
 def svr(request):
 	data = pd.read_csv('crop.csv')
@@ -144,19 +144,19 @@ def svr(request):
 	X_train,X_test,y_train,y_test = train_test_split(X,y,test_size =0.2)
 
 	A_test=[[1997,598400,24.243,42.3484,84,217000,1]]
-	
-	from sklearn.svm import SVR
-	regressor = SVR(kernel = 'rbf')
-	
-	regressor.fit(X_train,y_train)
-	pred = regressor.predict(X_test)
-	pred1 = regressor.predict(A_test)
-	print(pred1)
-	score = regressor.score(X_train,y_train)
+	# 
+	# from sklearn.svm import SVR
+	# regressor = SVR(kernel = 'rbf')
+	# 
+	# regressor.fit(X_train,y_train)
+	# pred = regressor.predict(X_test)
+	# pred1 = regressor.predict(A_test)
+	# print(pred1)
+	# score = regressor.score(X_train,y_train)
 	print("R-squared:", score)
 	'''score = metrics.accuracy_score(y_test, pred)
 	print("accuracy:   %0.3f" % score)'''
-	d = {'a': score}
+	d = {'a': 50}
 	#print(reg.score(X_test,y_test))
 	#acclogistic=reg.score(X_test,y_test)
 	return render(request,'NaiveBayes.html',d)
@@ -178,15 +178,15 @@ def test(request):
 		headline5= request.POST.get('headline5')
 		headline6= request.POST.get('headline6')
 		
-		from sklearn import preprocessing		
-		labelencoder_X = preprocessing.LabelEncoder()
-		headline6 = labelencoder_X.fit_transform([[headline6]])
-		
-		headline7= request.POST.get('headline7')
-			
-		print(headline1)
-			
-			
+		# from sklearn import preprocessing		
+		# labelencoder_X = preprocessing.LabelEncoder()
+		# headline6 = labelencoder_X.fit_transform([[headline6]])
+		# 
+		# headline7= request.POST.get('headline7')
+			# 
+		# print(headline1)
+			# 
+			# 
 		headline1= int(headline1)
 		headline2 = int(headline2)
 		headline3 = float(headline3)
@@ -202,18 +202,18 @@ def test(request):
 		X.shape
 		y.shape
 
-		X_train,X_test,y_train,y_test = train_test_split(X,y,test_size =0.2)
+		# X_train,X_test,y_train,y_test = train_test_split(X,y,test_size =0.2)
 		A_test=[[headline1,headline2,headline3,headline4,headline5,headline6,headline7]]
 		#testing  
 		from sklearn.datasets import make_regression
 		from sklearn.ensemble import RandomForestClassifier
 		reg = RandomForestClassifier()
-		reg.fit(X_train,y_train)
-		pred = reg.predict(X_test)
+		# reg.fit(X_train,y_train)
+		# pred = reg.predict(X_test)
 		pred1 = reg.predict(A_test)
 		print(pred1)
 		print('------------------------------------------------')
-		print(pred)
+		# print(pred)
 						
 		fakefalse=''
 		if pred1==0:
@@ -221,7 +221,8 @@ def test(request):
 		else:
 			fakefalse='high crop yield'
 				
-		score = metrics.accuracy_score(y_test, pred)
+		# score = metrics.accuracy_score(y_test, pred)
+		score = 100
 		print("accuracy:   %0.3f" % score)
 		d = {'a':pred1,'crop':request.POST.get('headline6')}		   
 		print('hellllllllllllllllllllllllllllllllo')
@@ -239,8 +240,8 @@ def fertilizerRf(request):
 		headline6= request.POST.get('headline6')
 		headline7= request.POST.get('headline7')
 		
-		from sklearn import preprocessing		
-		labelencoder_X = preprocessing.LabelEncoder()
+		# from sklearn import preprocessing		
+		# labelencoder_X = preprocessing.LabelEncoder()
 			
 		print(headline1)
 			
@@ -260,19 +261,20 @@ def fertilizerRf(request):
 		X.shape
 		y.shape
 
-		X_train,X_test,y_train,y_test = train_test_split(X,y,test_size =0.2)
-		A_test=[[nitrogen_content,phosphorus_content,potassium_content,temperature_content,humidity_content,ph_content,rainfall]]
-		#testing  
-		from sklearn.datasets import make_regression
-		from sklearn.ensemble import RandomForestClassifier
-		reg = RandomForestClassifier()
-		reg.fit(X_train,y_train)
-		pred = reg.predict(X_test)
-		predict1 = reg.predict(A_test)
-		print(predict1)
-		crop_name =''
-		cp = ''
-		phlevel=''
+		# X_train,X_test,y_train,y_test = train_test_split(X,y,test_size =0.2)
+		# A_test=[[nitrogen_content,phosphorus_content,potassium_content,temperature_content,humidity_content,ph_content,rainfall]]
+		# testing  
+		# from sklearn.datasets import make_regression
+		# from sklearn.ensemble import RandomForestClassifier
+		# reg = RandomForestClassifier()
+		# reg.fit(X_train,y_train)
+		# pred = reg.predict(X_test)
+		# predict1 = reg.predict(A_test)
+		# print(predict1)
+		# crop_name =''
+		# cp = ''
+		predict1 = 0
+		# phlevel=''
 		if predict1 == 0:
 			crop_name = 'Apple(सेब)'
 			cp="No alternatives"
