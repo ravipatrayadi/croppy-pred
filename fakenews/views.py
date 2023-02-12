@@ -24,17 +24,12 @@ from sklearn.metrics import confusion_matrix
 
 import pyttsx3
 import pandas as pd
-from sklearn import \
-	preprocessing
+from sklearn import preprocessing
 from sklearn.neighbors import KNeighborsClassifier
 import numpy as np
 import PySimpleGUI as sg
-# Input data files are available in the "../input/" directory.
-# For example, running this (by clicking run or pressing Shift+Enter) will list the files in the input directory
 
 import pymysql
-
-
 
 
 def speak(
@@ -412,11 +407,10 @@ def fertilizerRf(request):
 
 		speak("The best crop that you can grow is  " + crop_name)
 		speak("The other alternatives are " + cp)
-		
-							
-		
-		
-				
+
+
+
+
 		score = metrics.accuracy_score(y_test, pred)
 		print("accuracy:   %0.3f" % score)
 		d = {'a':crop_name,'b':cp,'score':score}		   
