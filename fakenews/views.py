@@ -80,7 +80,7 @@ def loginuser(request):
 	return render(request,'index.html')
 ################ Home #################
 def home(request):
-	return render(request,'cropyield.html')
+	return render(request,'test.html')
 
 ######## SVM ######
 def nvb(request):
