@@ -19,7 +19,7 @@ from fakenews import views
 from django.conf.urls import url
 urlpatterns = [
     url('admin/', admin.site.urls),
-    url(r'^home', views.home, name='home'),
+    url(r'home', views.home, name='home'),
 	url(r'^nvb', views.nvb, name='nvb'),
 	url(r'^pac', views.pac, name='pac'),
 	url(r'^svm', views.svm, name='svm'),
