@@ -85,7 +85,7 @@ def home(request):
 
 ######## SVM ######
 def nvb(request):
-	data = pd.read_csv('D:/soil kroptor/crop.csv')
+	data = pd.read_csv('crop.csv')
 	from sklearn import preprocessing		
 	labelencoder_X = preprocessing.LabelEncoder()
 	X = data.iloc[:, 1:8].values
@@ -110,7 +110,7 @@ def nvb(request):
 	#acclogistic=reg.score(X_test,y_test)
 	return render(request,'NaiveBayes.html',d)
 def rf(request):
-	data = pd.read_csv('D:/soil kroptor/crop.csv')
+	data = pd.read_csv('crop.csv')
 	X = data.iloc[:, 1:8].values
 	y = data.iloc[:, 9].values	   
 	X.shape
@@ -135,7 +135,7 @@ def rf(request):
 	return render(request,'NaiveBayes.html',d)
 	
 def svr(request):
-	data = pd.read_csv('D:/soil kroptor/crop.csv')
+	data = pd.read_csv('crop.csv')
 	X = data.iloc[:, 1:8].values
 	y = data.iloc[:, 9].values	   
 
@@ -195,7 +195,7 @@ def test(request):
 		headline6 = int(headline6)
 		headline7 = int(headline7)
 			
-		data = pd.read_csv('D:/soil kroptor/crop.csv')
+		data = pd.read_csv('crop.csv')
 
 		X = data.iloc[:, 1:8].values
 		y = data.iloc[:, 9].values	   
@@ -253,7 +253,7 @@ def fertilizerRf(request):
 		ph_content = float(headline6)
 		rainfall = float(headline7)
 			
-		data = pd.read_excel('D:/soil kroptor/cropnew.xlsx')
+		data = pd.read_excel('cropnew.xlsx')
 
 		X = data.iloc[:, 0:7].values
 		y = data.iloc[:, 8].values	   
