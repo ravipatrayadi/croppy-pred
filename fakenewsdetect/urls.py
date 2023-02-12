@@ -18,7 +18,7 @@ from django.urls import path
 from fakenews import views
 from django.conf.urls import url
 urlpatterns = [
-    url('admin/', admin.site.urls),
+    # url('admin/', admin.site.urls),
 	url(r'^$', views.loginpage, name='loginpage'),
 	
 ]
