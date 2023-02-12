@@ -34,7 +34,7 @@ import pymysql
 
 def speak(
 		audio):
-	engine = pyttsx3.init('sapi5')
+	engine = pyttsx3.init('espeak')
 	voices = engine.getProperty('voices')
 	rate = engine.getProperty('rate')
 	engine.setProperty('rate', rate - 20)
